@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+    <div id="header">Experimental chat with webSocket [without NC] - IoT Lab.</div>
+
+    <p id="para"></p>
+    <div id="progressbar"></div>
+    Packet received :
+    <p id="value"> </p>
+    <br />
+
+
+
+    <div id="messages">
+        <div id="message">
+            <b id="id_name">Amirhosein</b>
+            <p id="message_data">Welcome to WSchat
+            </p>
+        </div>
+
+
+    </div>
+
+    <div class="message_box">
+        <input type="text" id="message_input" placeholder="Write your message">
+        <button onclick="sendMessage()"> Send </button>
+    </div>
+    <script src="assets/main.js"></script>
+</body>
+
+
+</html>
