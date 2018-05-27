@@ -1,10 +1,8 @@
 var ws = new WebSocket('ws://localhost:5001');
 
-
 function randomID() {
     return Math.floor(Math.random() * 1e11);
 }
-
 
 var Nickname = "JOHN DOE";
 
@@ -16,21 +14,12 @@ ws.onopen = function () {
     if (localStorage.getItem(userID + "NAME")) {
         Nickname = localStorage.getItem(userID + "NAME");
     } else {
-
         Nickname = prompt("What is your Nickname ?");
         console.info(Nickname);
         localStorage.setItem(userID + "NAME", Nickname);
     }
 }
 
-
-
-
-
-
-
-var bar = 0;
-var packetCounter = 0;
 ws.onmessage = function (data) {
 
     // here we should add new messages received from another clients 
@@ -59,14 +48,11 @@ ws.onmessage = function (data) {
 
     var objDiv = document.getElementById("messages");
     objDiv.scrollTop = objDiv.scrollHeight;
-
-
 }
 
 
 ws.onclose = function () {
     console.log("closed websocket");
-
 }
 
 
@@ -74,7 +60,6 @@ function sendMessage() {
     var text = document.getElementById("message_input").value;
     document.getElementById("message_input").value = "";
     if (text) {
-
 
         var newMsg = {
             name: Nickname,
@@ -89,7 +74,6 @@ function sendMessage() {
         return;
     }
 }
-
 
 var message_input = document.getElementById("message_input");
 message_input.addEventListener("keydown", function (e) {
