@@ -13,5 +13,6 @@ nodemon Server/index.js
 ```
 
 
-### Open index.html files directly 
+### request to localhost:8080, e.g., simply open browser and go to http://localhost:8080
+(do not open html files directly)
 ![alt text](https://raw.githubusercontent.com/amirhosseinnazari/webChat-collection/master/address.PNG)
