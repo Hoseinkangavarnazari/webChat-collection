@@ -13,6 +13,6 @@ nodemon Server/index.js
 ```
 
 
-### request to localhost:8080, e.g., simply open browser and go to http://localhost:8080
-(do not open html files directly)
+# request to localhost:8080, e.g., simply open browser and go to http://localhost:8080
+#( Do not open html files directly)
 ![alt text](https://raw.githubusercontent.com/amirhosseinnazari/webChat-collection/master/address.PNG)
