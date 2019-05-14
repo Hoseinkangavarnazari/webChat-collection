@@ -2,8 +2,15 @@ var ws = new WebSocket('ws://localhost:5001');
 
 
 // generating new id for every user
-function randomID() {
+function randomID2() {
     return Math.floor(Math.random() * 1e11);
+}
+
+function randomID() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "http://localhost:8080/randomid", false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
 
 //set default name for nickname in ex scenarios
@@ -12,9 +19,8 @@ var Nickname = "JOHN DOE";
 ws.onopen = function () {
 
     console.log('Successfully connected to the server');
-
     // get user ID if it's available or generating one
-    var userID = localStorage.getItem("userID") || randomID();
+    var userID = randomID();
     //save userID in local storage of browser 
     localStorage.setItem("userID", userID);
 
@@ -22,19 +28,19 @@ ws.onopen = function () {
     if (localStorage.getItem(userID + "NAME")) {
         Nickname = localStorage.getItem(userID + "NAME");
     } else {
-        // when there isn't any userID available get new Nickname from user 
+        // when there isn't any userID available get new Nickname from user
         Nickname = prompt("What is your Nickname ?");
 
         console.log("User nickname with userID " + userID + " is ", Nickname);
 
-        //set Nickname user in localstorage of browser 
+        //set Nickname user in localstorage of browser
         localStorage.setItem(userID + "NAME", Nickname);
     }
 }
 
 ws.onmessage = function (data) {
 
-    // here we should add new messages received from another clients 
+    // here we should add new messages received from another clients
     console.log("Data received from server (socket)", data);
 
     //parse data
